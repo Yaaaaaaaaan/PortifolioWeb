@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2Devs</title>
+    <script src="https://kit.fontawesome.com/9d9ea17666.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+     <script src="https://js.cx/libs/animate.js"></script>
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+    <section class="sec">
+      <header class="animate__animated animate__backInDown">
+        <a href="#"><text id="logoIni">2</text><text id="logoFim">Devs</text></a>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Produtos</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Entre em contato</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="textBox animate__animated animate__backInLeft">
+          <h2>Quem somos nós?</h2>
+          <p id="TInicial">
+            Somos jovens sonhadores, dispostos a mudar nossas histórias, e mudar o mundo! Pois observamos que atualmente Pequenas empresas não dispõem de uma boa qualidade em visual merchandising, viemos para fazer a diferença no mercado, ajudando jovens (ou não, rs) a terem uma identidade visual/marketing de qualidade, e de forma mais acessível e sustentável.  
+          </p>
+          <br/>
+          <textarea readonly="readonly" id="TRodape">Estamos aqui para dar suporte, prestar consultorias, além do bom e velho desenvolvimento de ferramentas de otimização e gestão.</textarea>
+          <a id="botaoPortfolio" href="#">Nosso portfólio</a>
+        </div>
+        <div class="imgBox animate__animated animate__zoomInRight">
+          <div id="infoBox">
+            <img src="IMG_YAN.png" class="img" />
+            <div id="textBox">
+              <h4 style="margin-top:5px;">Yan Fonseca</h4>
+              <p>Desenvolvedor Web & PHP</p>
+             </div>
+            <div id="textBox1">
+              <h4 style="margin-top:5px;">Emmanuel Gonçalves</h4>
+              <p>Desenvolvedor Web & PHP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="thumb animate__animated animate__backInUp">
+        <li>
+          <img
+            src="IMG/IMG_YAN.png"
+            onclick="imgSlider('IMG_YAN.png');updateStateoff('textBox1');updateStateon('textBox')"
+          />
+        </li>
+        <li>
+          <img
+            src="IMG/IMG_EMM.png"
+            onclick="imgSlider('IMG_EMM.png');updateStateoff('textBox');updateStateon('textBox1')" 
+          />
+        </li>
+      </ul>
+            <ul class="sci animate__animated animate__zoomInRight">
+        <li>
+          <a style="color:#000;" href="#"><i class="fa-brands fa fa-3x fa-facebook"></i></a>
+        </li>
+        <li>
+          <a style="color:#000;" href="#"><i class="fa-brands fa fa-3x fa-twitter"></i></a>
+        </li>
+        <li>
+          <a style="color:#000;" href="#"><i class="fa-brands fa fa-3x fa-instagram"></i></a>
+        </li>
+      </ul>
+    </section>
+    <script type="text/javascript">
+      setInterval(animateText(TRodape), 5000);
+      function imgSlider(anything) {
+        document.querySelector('.img').src = anything
+      }
+    function animateText(textArea) {
+      let text = textArea.value;
+      let to = text.length,
+        from = 0;
+
+      animate({
+        duration: 8000,
+        timing: bounce,
+        draw: function(progress) {
+          let result = (to - from) * progress + from;
+          textArea.value = text.substr(0, Math.ceil(result))
+        }
+      });
+    }
+
+
+    function bounce(timeFraction) {
+      for (let a = 0, b = 1; 1; a += b, b /= 2) {
+        if (timeFraction >= (7 - 4 * a) / 11) {
+          return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+        }
+      }
+    }
+    function updateStateoff(el) {
+        var display = document.getElementById(el).style.display;
+        if(display == "block")
+            document.getElementById(el).style.display = 'none';
+        else
+            document.getElementById(el).style.display = 'none';
+    }
+      function updateStateon(el) {
+          var display = document.getElementById(el).style.display;
+          if(display == "none")
+              document.getElementById(el).style.display = 'block';
+          else
+              document.getElementById(el).style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
